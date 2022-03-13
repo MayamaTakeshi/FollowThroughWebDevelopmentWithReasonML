@@ -52,7 +52,7 @@ let getValue = (element: option(Elem.t)): option(string) => {
 let toInt = (s:string): option(int) => {
   switch (int_of_string(s)) {
     | result => Some(result)
-    | exception(Failure("int_of_string")) => None
+    | exception(Failure(_)) => None
   }
 };
 
@@ -81,15 +81,38 @@ let calculate =(_ : Dom.event) : unit => {
   (); /* return unit */
 };
 
+/*
+// Not needed anymore because of the event handling for quantity and size
 let calcButton = Doc.getElementById(D.document, "calculate");
 switch (calcButton) {
   | Some(element) =>
-     Js.log("got button");
-     D.EventTarget.addEventListener(
-      Elem.asEventTarget(element), "click", calculate)
+      Js.log("HTML element 'calculate' found");
+      D.EventTarget.addEventListener(
+        Elem.asEventTarget(element), "click", calculate)
   | None => 
-     Js.log("no button");
+     Js.log("HTML element 'calculate' not found");
      ()
 };
+*/
 
+let quantityInput = Doc.getElementById(D.document, "quantity");
+switch (quantityInput) {
+  | Some(element) =>
+      Js.log("HTML element 'quantity' found");
+      D.EventTarget.addEventListener(
+        Elem.asEventTarget(element), "input", calculate)
+  | None =>
+      Js.log("HTML element 'quantity' not found");
+      ()
+};
 
+let sizeSelect = Doc.getElementById(D.document, "size");
+switch (sizeSelect) {
+  | Some(element) =>
+      Js.log("HTML element 'size' found");
+      D.EventTarget.addEventListener(
+        Elem.asEventTarget(element), "change", calculate)
+  | None =>
+     Js.log("HTML element 'size' not found");
+     ()
+};
