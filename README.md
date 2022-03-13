@@ -74,7 +74,7 @@ takeshi:shirts$ npm install --save-dev parcel
 ```
 
 ## Preparing a web app 
-
+```
 takeshi:shirts$ rm src/Deme.re # removed demo file
 
 takeshi:shirts$ npm install --save rescript-webapi # added rescript-webapi
@@ -169,4 +169,6 @@ The change will be detected by 'bsb -make-world -w' that will generate src/WebSh
 
 Then since this file is referenced by index.html which is watched by parcel, it will cause parcel to rebundle the artifacts and send to the client code in the browser via WebSocket.
 
+So up to this point we learned how to write web apps with ReScript. 
+However, rescript-webapi is very low level and instead we should use RescriptReact.
 
