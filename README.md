@@ -1,7 +1,7 @@
 # FollowThroughWebDevelopmentWithReasonML
 Just preserving code written while following through WebDevelopmentWithReasonML by J. David Eisenberg
 
-Obs: at the time I read this book. ReasonML/BuckleScript were already rebranded as ReScript.
+Obs: by the time I started to read this book, ReasonML and BuckleScript were already rebranded as ReScript.
 So, there we some differences in the tools, dependencies and code.
 
 ## Preparation
@@ -155,7 +155,7 @@ dist/index.html              677 B    300ms
 dist/index.7bf4b1eb.js    18.47 KB    959ms
 takeshi:shirts$ 
 ```
-## Run parcel server the app and monitor for changes in files
+## Run parcel to serve the app and monitor for changes in files
 ```
 takeshi:shirts$ npx parcel src/index.html
 Server running at http://localhost:1234
@@ -165,10 +165,11 @@ Server running at http://localhost:1234
 
 Open http://localhost:1234 in the browser and confirm HMR is working by doing some changes in src/WebShirts.re
 
-The change will be detected by 'bsb -make-world -w' that will generate src/WebShirts.bs.js. 
+The changes will be detected by 'bsb -make-world -w' that will generate src/WebShirts.bs.js. 
 
 Then since this file is referenced by index.html which is watched by parcel, it will cause parcel to rebundle the artifacts and send to the client code in the browser via WebSocket.
 
 So up to this point we learned how to write web apps with ReScript. 
+
 However, rescript-webapi is very low level and instead we should use RescriptReact.
 
