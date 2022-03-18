@@ -1,24 +1,20 @@
-# Basic Reason Template
-
-Hello! This project allows you to quickly get started with ReScript using Reason syntax. If you wanted a more sophisticated version, try the `react` template (`bsb -theme react -init .`).
-
-# Build
-
-```bash
-# for yarn
-yarn build
-
-# for npm
-npm run build
+# Testing the code:
 ```
+takeshi:shirt-stats$ npm install
 
-# Build + Watch
+up to date, audited 2 packages in 520ms
 
-```bash
-# for yarn
-yarn start
+found 0 vulnerabilities
 
-# for npm
-npm run start
+takeshi:shirt-stats$ bsb -make-world
+Dependency Finished
+bsb: [7/7] src/Stats-ShirtStats.cmj
+
+takeshi:shirt-stats$ node src/Stats.bs.js sample.csv 
+Color Quantity
+White 6
+Blue 9
+Red 5
+
 ```
 
