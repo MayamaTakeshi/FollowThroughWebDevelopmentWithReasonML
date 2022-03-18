@@ -173,3 +173,10 @@ So up to this point we learned how to write web apps with ReScript.
 
 However, rescript-webapi is very low level and instead we should use RescriptReact.
 
+## Generating module interface file
+
+Chapter 7 teaches to do this using this example:
+```
+bsc -bs-re-out lib/bs/src/Shirts-ModShirts.cmi > src/Shirts.rei
+```
+
